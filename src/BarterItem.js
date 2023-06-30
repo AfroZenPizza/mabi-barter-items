@@ -12,11 +12,10 @@ const BarterItem = (props) => {
         recipe.push(requirement);
         quantity.push(BarterItems[item][requirement])
     }
-    //<div style={{position: "relative", left: "32px"}}>{item} x {quantity[index]} ({quantity[index] * limit})</div>
   return (
-    <div style={{position: "relative", left: "32px"}}><span onClick={toggleExpand}>{item}</span>
-        {expand && recipe.map((item, index) => {return <LinkedItem item={item} requirement={quantity[index]} weeklyCap={quantity[index]*limit}/>}) }
-    </div>
+    <li className="px-4 pt-2 font-bold"><span onClick={toggleExpand} className="">{item}</span>
+        {recipe.map((item, index) => {return <LinkedItem item={item} requirement={quantity[index]} weeklyCap={quantity[index]*limit}/>})}
+    </li>
   );
 }
 
