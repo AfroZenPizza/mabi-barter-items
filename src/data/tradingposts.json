@@ -1,0 +1,29 @@
+{
+    "Karu Forest": [
+        "Wooden Table",
+        "Wooden Craft",
+        "Stone Horse Statue",
+        "Karu Shitake Mushroom",
+        "Shellfish Fossil"
+    ],
+    "Connous Oasis": ["Fine Sand",
+        "Prison Ghost Wing",
+        "Oasis Painting",
+        "Cactus Flower",
+        "Giant Canine Fossil"
+    ],
+    "Lake Calida": [
+        "Elvan Egg",
+        "Calida Salmon",
+        "Hot Spring Bath Bomb",
+        "Large Camping Tent",
+        "Pink Salt"
+    ],
+    "Pera Volcano": [
+        "Volcanic Mud Pack",
+        "Magma Stone",
+        "Ixion Horn",
+        "Volcano Lizard Egg",
+        "Raspa Black Leopard Leather"
+    ]
+}
