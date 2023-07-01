@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mabi-barter-items/static/css/main.763e4959.css",
+    "main.js": "/mabi-barter-items/static/js/main.4de540fa.js",
+    "index.html": "/mabi-barter-items/index.html",
+    "main.763e4959.css.map": "/mabi-barter-items/static/css/main.763e4959.css.map",
+    "main.4de540fa.js.map": "/mabi-barter-items/static/js/main.4de540fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.763e4959.css",
+    "static/js/main.4de540fa.js"
+  ]
+}
