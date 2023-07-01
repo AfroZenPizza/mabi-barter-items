@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import TradingPosts from './data/tradingposts.json';
 import TradingPost from './TradingPost';
+import Footer from './Footer'
 import { Tab } from '@headlessui/react'
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
   }
 
   return (
+    <>
     <div className='grid h-screen place-items-center bg-stone-900'>
     <div className='w-full max-w-md px-2 py-2 sm:px-2 rounded-xl shadow-xl bg-gray-100'>
       <Tab.Group>
@@ -72,6 +74,8 @@ function App() {
       </Tab.Group>
     </div>
     </div>
+    <Footer />
+    </>
   );
 }
 
