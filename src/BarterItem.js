@@ -3,9 +3,9 @@ import BarterItems from "./data/barteritems.json";
 import LinkedItem from "./LinkedItem"
 
 const BarterItem = (props) => {
-    const [expand, setExpanded] = useState(false);
+    const [expand, setExpanded,] = useState(false);
     const toggleExpand = () => setExpanded(prevExpanded => !prevExpanded);
-    const {item, limit} = props;
+    const {item, limit, ...p} = props;
     let recipe = [];
     let quantity = [];
     for (const requirement in BarterItems[item]){
@@ -14,7 +14,7 @@ const BarterItem = (props) => {
     }
   return (
     <li className="px-4 pt-2 font-bold"><span onClick={toggleExpand} className="">{item}</span>
-        {recipe.map((item, index) => {return <LinkedItem item={item} requirement={quantity[index]} weeklyCap={quantity[index]*limit}/>})}
+        {recipe.map((item, index) => {return <LinkedItem item={item} requirement={quantity[index]} weeklyCap={quantity[index]*limit} {...p}/>})}
     </li>
   );
 }
