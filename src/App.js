@@ -23,7 +23,6 @@ function App() {
   const [completedItems, setCompletedItems] = useState(() => {
     let completedItems = JSON.parse(localStorage.getItem('completedItems'));
     if (completedItems == null) return {};
-    if (completedItems["expired"] == null) return {};
     if (Date.now() > new Date(completedItems["expires"])){
       return {}
     }
