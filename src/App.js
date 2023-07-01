@@ -25,9 +25,9 @@ function App() {
 
   const [completedItems, setCompletedItems] = useState(() => {
     let completedItems = JSON.parse(localStorage.getItem('completedItems'));
-    if (completedItems == null) return {};
+    if (completedItems == null) return {"expires": getExperation()};
     if (Date.now() > new Date(completedItems["expires"])){
-      return {}
+      return {"expires": getExperation()}
     }
     return completedItems;
   })
@@ -43,8 +43,6 @@ function App() {
     } else {
       newCompletedItems[item] = true;
     }
-    newCompletedItems["expires"] = getExperation();
-    console.log(newCompletedItems)
     setCompletedItems(newCompletedItems);
   }
 
