@@ -17,7 +17,9 @@ function App() {
     // you know what... This is it... this is all I'm doing. No need for a professional or polished approach
     let startOfWeek = new Date(new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()) - date.getUTCDay() * 24 * 60 * 60 * 1000);
     // I fucking hate timezones - so let's be lazy
-    return new Date(startOfWeek.valueOf() +  6*24*60*60*1000  + 14*60*60*1000 - startOfWeek.getTimezoneOffset()*60*1000);
+    let endOfWeek = new Date(startOfWeek.valueOf() +  6*24*60*60*1000  + 14*60*60*1000 - startOfWeek.getTimezoneOffset()*60*1000);
+    if (date > endOfWeek) endOfWeek += 7*24*60*60*1000;
+    return endOfWeek;
   }  
   
 
