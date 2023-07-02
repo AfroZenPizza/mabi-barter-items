@@ -22,6 +22,12 @@ function App() {
     return endOfWeek;
   }  
   
+  const [activeTab, setActiveTab] = useState( () => {
+    let activeTab = JSON.parse(localStorage.getItem('activeTab'));
+    if (activeTab == null) return 0;
+    console.log(activeTab)
+    return activeTab;
+  })
 
   const [completedItems, setCompletedItems] = useState(() => {
     let completedItems = JSON.parse(localStorage.getItem('completedItems'));
@@ -36,6 +42,10 @@ function App() {
     localStorage.setItem('completedItems', JSON.stringify(completedItems))
   }, [completedItems])
 
+  useEffect( () => {
+     localStorage.setItem('activeTab', JSON.stringify(activeTab))
+  }, [activeTab])
+
   let completeItem = (item) => {
     const newCompletedItems = {...completedItems};
     if (newCompletedItems[item]){
@@ -47,28 +57,30 @@ function App() {
   }
 
   const uniqueClass = {
-    "Karu Forest": 'w-full bg-green-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-green-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-400 focus:outline-none focus:ring-2',
-    "Connous Oasis": 'w-full bg-orange-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-orange-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-orange-400 focus:outline-none focus:ring-2',
-    "Lake Calida": 'w-full bg-blue-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-    "Pera Volcano": 'w-full bg-red-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-red-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-red-400 focus:outline-none focus:ring-2'
+    "Karu Forest": 'w-full bg-green-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-green-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-400',
+    "Connous Oasis": 'w-full bg-orange-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-orange-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-orange-400',
+    "Lake Calida": 'w-full bg-blue-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
+    "Pera Volcano": 'w-full bg-red-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-red-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-red-400'
   }
 
   return (
     <>
     <div className='grid h-screen place-items-center bg-stone-900'>
-    <div className='w-full max-w-md px-2 py-2 sm:px-2 rounded-xl shadow-xl bg-gray-100'>
-      <Tab.Group>
+    <div className='w-full max-w-md px-2 py-2 sm:px-2'>
+      <Tab.Group onChange={(index) => setActiveTab(index)} defaultIndex={activeTab}>
         <Tab.List className='flex space-x-1 rounded-xl p-1'>
-          {posts.map( (post) => {
-            return <Tab className={
-              uniqueClass[post] ? uniqueClass[post] :
-              'w-full bg-slate-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
-            }>{post}</Tab>
+          {posts.map( (post, i) => {
+            return <Tab className={ ()=> {
+              let classes = uniqueClass[post] ? uniqueClass[post] :
+              'w-full bg-slate-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400'
+              if (i != activeTab) classes += " opacity-50";
+              return classes;
+            }}>{post}</Tab>
           })}
         </Tab.List>
         <Tab.Panels>
           {posts.map( (post) => {
-            return <Tab.Panel><TradingPost name={post} items={TradingPosts[post]} completeItem={completeItem} completedItems={completedItems}/></Tab.Panel>
+            return <Tab.Panel className="bg-slate-200 rounded-lg m-1 mt-2 pb-2"><TradingPost name={post} items={TradingPosts[post]} completeItem={completeItem} completedItems={completedItems}/></Tab.Panel>
           })}
         </Tab.Panels>
       </Tab.Group>
