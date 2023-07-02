@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mabi-barter-items/static/css/main.751bc2ff.css",
-    "main.js": "/mabi-barter-items/static/js/main.13eaf0b7.js",
+    "main.css": "/mabi-barter-items/static/css/main.92fd2712.css",
+    "main.js": "/mabi-barter-items/static/js/main.adbc7687.js",
     "index.html": "/mabi-barter-items/index.html",
-    "main.751bc2ff.css.map": "/mabi-barter-items/static/css/main.751bc2ff.css.map",
-    "main.13eaf0b7.js.map": "/mabi-barter-items/static/js/main.13eaf0b7.js.map"
+    "main.92fd2712.css.map": "/mabi-barter-items/static/css/main.92fd2712.css.map",
+    "main.adbc7687.js.map": "/mabi-barter-items/static/js/main.adbc7687.js.map"
   },
   "entrypoints": [
-    "static/css/main.751bc2ff.css",
-    "static/js/main.13eaf0b7.js"
+    "static/css/main.92fd2712.css",
+    "static/js/main.adbc7687.js"
   ]
 }
