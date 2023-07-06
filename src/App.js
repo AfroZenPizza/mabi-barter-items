@@ -4,6 +4,8 @@ import TradingPosts from './data/tradingposts.json';
 import TradingPost from './TradingPost';
 import Footer from './Footer'
 import { Tab } from '@headlessui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   let posts = [];
@@ -56,6 +58,10 @@ function App() {
     setCompletedItems(newCompletedItems);
   }
 
+  let clearItems = () => {
+    setCompletedItems({"expires": getExperation()})
+  }
+
   const uniqueClass = {
     "Karu Forest": 'w-full bg-green-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-green-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-400',
     "Connous Oasis": 'w-full bg-orange-200 rounded-lg py-2.5 text-sm font-medium leading-5 text-orange-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-orange-400',
@@ -84,6 +90,8 @@ function App() {
           })}
         </Tab.Panels>
       </Tab.Group>
+      <button className="w-40 float-right mx-auto mt-2 py-2 text-center bg-red-800 hover:bg-red-600 font-medium rounded-lg text-white" onClick={clearItems}>
+        <FontAwesomeIcon icon={faWarning}/> Clear</button>
     </div>
     </div>
     <Footer />
