@@ -13,7 +13,7 @@ const TradingPost = (props) => {
   return (
     <>
     <ul>
-      {items.map((item, index) => {return <BarterItem item={item} limit={weeklyLimits[index]} {...p}/>})}
+      {items.map((item, index) => {return <BarterItem key={item} item={item} limit={weeklyLimits[index]} {...p}/>})}
     </ul>
     </>
   );

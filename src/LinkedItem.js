@@ -6,9 +6,9 @@ import { faCheck, faRefresh } from "@fortawesome/free-solid-svg-icons";
 const LinkedItem = (props) => {
   const {item, requirement, weeklyCap, completeItem, completedItems} = props;
   
-  let style = {color: "black", "text-decoration": "none"};
+  let style = {color: "black", "textDecoration": "none"};
   if (completedItems[item]){
-    style = {...style, ...{"text-decoration": "strikethrough", "opacity": "0.2"}}
+    style = {...style, ...{"textDecoration": "strikethrough", "opacity": "0.2"}}
   }
 
   let handleClick = () => {
